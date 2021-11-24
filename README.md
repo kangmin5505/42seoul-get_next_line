@@ -1,1 +1,49 @@
 # 42seoul-get_next_line
+## Common Instructions
+- Norm
+- No error(segmentation falut, bus error, double free, etc)
+- No leak
+- Submit Makefile which will compile your source files
+  - Flags -Wall, -Wextra and -Werror
+  - Use cc(compiler)
+  - No relink
+  - Least contain $(NAME), all, clean, fclean, re
+- To turn in bonuses to your project, you must include a rule bonus to your Makefile, which will add all the various headers, libraries or functions that are forbidden on the main part of the project.\
+Bonuses must be in a different file _bonus.{c/h}.
+- If your project allows you to use your libft, you must copy its sources and its associated Makefile in a libft folder with its associated Makefile. Your project's Makefile must compile the library by using its Makefile, then compile the project.
+
+## Mandatory Part
+![image](https://user-images.githubusercontent.com/74703501/143185646-01e671d9-62d7-49ab-bc9e-838746b12262.png)
+- Calling your function get_next_line in a loop will then allow you to read the text available on the file descriptor one line at a time until the end of it.
+- Your function should return the line that has just been read. If there is nothing else to read or if an error has occurred it should return NULL.
+- Make sure that your function behaves well when it reads from a file and when it reads from the standard input.
+- libft is not allowed for this project. You must add a get_next_line_utils.c file which will contain the functions that are needed for your get_next_line to work.
+- Your program must compile with the flag -D BUFFER_SIZE=xx which will be used as the buffer size for the read calls in your get_next_line. This value will be modified by your evaluators and by the moulinette.
+- The program will be compiled in this way:
+gcc -Wall -Wextra -Werror -D BUFFER_SIZE=42 \<files>.c.
+- Your read must use the BUFFER_SIZE defined during compilation to read from a file or from stdin. This value will be modified during the evaluation for testing purposes.
+- In the header file get_next_line.h you must have at least the prototype of the function get_next_line.
+- lseek is not an allowed function. File reading must be done only once.
+- We consider that get_next_line has undefined behavior if, between two calls, the same file descriptor switches to a different file before reading everything from the first fd.
+- Finally we consider that get_next_line has undefined behavior when reading from a binary file. However, if you wish, you can make this behavior coherent.
+- Global variables are forbidden.
+- Important: The returned line should include the '\n', except if you have reached the end of file and there is no '\n'.
+
+## Bonus part
+- Turn-in all 3 mandatory files ending by _bonus.[c\h] for this part.
+- To succeed get_next_line with a single static variable.
+- To be able to manage multiple file descriptors with your get_next_line. For example, if the file descriptors, 3, 4 and 5 are accessible for reading, the you can call get_next_line once on 3, once on 4, once again on 3 then once on 5 etc. without losing the reading thread on each of the descriptors.
+
+## Concepts
+### Static variable
+In computr programming, a static variable is a variale that has been allocaed "statically", meaning that its lifetime (or "extent") is the entire run of the program.\
+This is in contrast to shorter-lived automatic variables, whose storage is stack allocated and deallocated on the call stack; and in contrast to objects, whose storage is dynamically allocated and deallocated in heap memory.\
+\
+Variable lifetime is contrasted with scope (where a variable can be used): "global" and "local" refer to scope, not lifetime, but scope often implies lifetime. In many languages, global variables are always static, but in some languages they are dynamic, while local variables are generally automatic, but may be static.\
+\
+In general, static memory allocation is the allocation of memory at compile time, before the associated program is executed, unlike dynamic memory allocation or automatic memory allocation where memory is allocated as required at run time.\
+
+### Addressing
+The absolute address addressing mode can only be used with static variables, because those are the only kinds of variables whose location is known by the compiler at compile time.\
+When the program (executable or library) is loaded into memory, static variables are stored in the data segment of the program's address space (if initialized), or the BSS segment (if uninitialized), and are stored in corresponding sections of object files prior to loading.\
+
