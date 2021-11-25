@@ -41,9 +41,23 @@ This is in contrast to shorter-lived automatic variables, whose storage is stack
 \
 Variable lifetime is contrasted with scope (where a variable can be used): "global" and "local" refer to scope, not lifetime, but scope often implies lifetime. In many languages, global variables are always static, but in some languages they are dynamic, while local variables are generally automatic, but may be static.\
 \
-In general, static memory allocation is the allocation of memory at compile time, before the associated program is executed, unlike dynamic memory allocation or automatic memory allocation where memory is allocated as required at run time.\
+In general, static memory allocation is the allocation of memory at compile time, before the associated program is executed, unlike dynamic memory allocation or automatic memory allocation where memory is allocated as required at run time.
 
 ### Addressing
 The absolute address addressing mode can only be used with static variables, because those are the only kinds of variables whose location is known by the compiler at compile time.\
-When the program (executable or library) is loaded into memory, static variables are stored in the data segment of the program's address space (if initialized), or the BSS segment (if uninitialized), and are stored in corresponding sections of object files prior to loading.\
+When the program (executable or library) is loaded into memory, static variables are stored in the data segment of the program's address space (if initialized), or the BSS segment (if uninitialized), and are stored in corresponding sections of object files prior to loading.
+
+### Scope
+In terms of scope and extent, static variables have extent the entire run of the program, but may have more limited scope./
+A basic distinction is between a static global variable, which has global scope and thus is in context throughout the program, and a static local variable, which has local scope./
+A static local variable is different from a local variable as a static local variable is initialized only once no matter how many times the function in which it resides is called and its value is retained and accessible through many calls to the function in which it is declared, e.g. to be used as a count variable./
+A static variable may also have module scope or some variant, shuch as internal linkage in C, which is a form of file scope or module scope.
+
+### Object-oriented programming
+In object-oriented programming, there is also the concept of a static member variable, which is a "class variable" of a statically defined class, i.e., a member variable of a given class which is shared across all instances (objects), and is accessible as a member variable of these objects./
+A class variable of a dynamically defined class, in languages where classes can be defined at run time, is allocated when the class is defined and is not static./
+/
+Object constants known at compile-time, such as string literals, are usually allocated statically./
+In object-oriented programming, the virtual method tables of classes are usually allocated statically./
+A statically defined value can also be global in its scope ensuring the same immutable value is used throughout a run for consistency.
 
