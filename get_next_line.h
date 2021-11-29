@@ -6,7 +6,7 @@
 /*   By: kangkim <kangkim@student.42seoul.k>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/11/25 14:01:29 by kangkim           #+#    #+#             */
-/*   Updated: 2021/11/29 17:15:45 by kangkim          ###   ########.fr       */
+/*   Updated: 2021/11/29 21:48:38 by kangkim          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,11 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdbool.h>
 
 char	*get_next_line(int fd);
 char	*ft_get_line(char **s_fdbuf, int fd);
-ssize_t	ft_read_file(char **s_fdbuf, int fd, char *buf);
+bool	ft_read_file(char **s_fdbuf, int fd, char *buf);
 void	ft_free_ptr(char *ptr);
 char	*ft_strchr(const char *s, int c);
 
