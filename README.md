@@ -64,3 +64,17 @@ A class variable of a dynamically defined class, in languages where classes can 
 Object constants known at compile-time, such as string literals, are usually allocated statically./
 In object-oriented programming, the virtual method tables of classes are usually allocated statically./
 A statically defined value can also be global in its scope ensuring the same immutable value is used throughout a run for consistency.
+
+## What I Learned
+1. File descriptor
+2. Exception
+3. Memory
+
+### General Reviews
+get_next_line 과제에서는 file descriptor를 인자로 받아서 file을 읽고, 한 줄을 출력하는 함수를 구현했다.\
+file descriptor란 file을 다루기 위한 정보가 들어 있는 변수로, 이를 사용해서 file을 읽었다.\
+그 다음 개행문자를 기준으로 한 문장을 반환했다.\
+이 과제를 하며 가장 어려웠던 부분은 메모리 할당과 메모리 반환이었다.\
+왜 사람들이 c와 c++언어를 공부하며, 메모리 관련해서 곯머리를 앓는지 이 과제를 통해 잠시나마 느꼈다.\
+분명 나는 메모리를 할당하고 반환했다고 생각했는데 프로그램이 실행시켜보면, 메모리 누수나 double free가 났다.\
+다음 과제들도 메모리를 사용할 거 같은데, 이 부분을 중점으로 메모리 관련 에러를 최소화 하도록 코드를 짜야겠다.G
