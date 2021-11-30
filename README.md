@@ -29,6 +29,10 @@ gcc -Wall -Wextra -Werror -D BUFFER_SIZE=42 \<files>.c.
 - Global variables are forbidden.
 - Important: The returned line should include the '\n', except if you have reached the end of file and there is no '\n'.
 
+![image](https://user-images.githubusercontent.com/74703501/143991904-d387107e-9419-45cf-bb97-bc76fd664890.png)
+![image](https://user-images.githubusercontent.com/74703501/143992016-643a8ab8-22bc-4dd1-8e82-995073fa0436.png)
+![image](https://user-images.githubusercontent.com/74703501/143992066-89465e2c-3cd7-4dad-a212-b8eff5f58480.png)
+
 ## Bonus part
 - Turn-in all 3 mandatory files ending by _bonus.[c\h] for this part.
 - To succeed get_next_line with a single static variable.
@@ -60,4 +64,3 @@ A class variable of a dynamically defined class, in languages where classes can 
 Object constants known at compile-time, such as string literals, are usually allocated statically./
 In object-oriented programming, the virtual method tables of classes are usually allocated statically./
 A statically defined value can also be global in its scope ensuring the same immutable value is used throughout a run for consistency.
-
